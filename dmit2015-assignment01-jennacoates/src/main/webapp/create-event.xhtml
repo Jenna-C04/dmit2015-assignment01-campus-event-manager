@@ -1,12 +1,57 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="primefaces"
       xmlns:f="jakarta.faces.core"
       xmlns:h="jakarta.faces.html">
 <f:view>
-    <h:head></h:head>
+    <h:head>
+        <title>Create Campus Event</title>
+    </h:head>
     <h:body>
+        <h:form>
 
+            <p:messages showDetail="true"/>
+            <p:panel header="Event Regsitration"/>
+
+            <p:outputLabel for="eventName" value="Event Name" />
+            <p:inputText id="eventName"
+                         value="#{campusEvent.eventName}"
+                         rendered="true"
+                         requiredMessage="Please enter a name for the event!"/>
+            <br />
+            <br />
+            <p:outputLabel for="organizerName" value="Organizer Name" />
+            <p:inputText id="organizerName"
+                         value="#{campusEvent.organizerName}"
+                         required="true"
+                         requiredMessage="Please enter a name for the organizer!"/>
+            <br />
+            <br />
+
+            <p:outputLabel for="eventDate" value="Event Date"/>
+            <p:datePicker id="eventDate"
+                          value="#{campusEvent.eventDate}"
+                          required="true"
+                          requiredMessage="Please select a date to hold the event!" />
+            <br />
+            <br />
+            <p:outputLabel for="capacity" value="Capacity" />
+            <p:inputNumber id="capacity"
+                           value="#{campusEvent.capacity}"
+                           required="true"
+                           requiredMessage="Please verifiy a capacity number!" />
+
+            <p:commandButton value="Submit"
+                             action="#{campusEvent.submit()}"
+                             update="@form"
+                             process="@form"/>
+
+            <h:outputText
+                value="Succesful submission : #{campusEvent.submssionCount}"/>
+
+
+        </h:form>
     </h:body>
 </f:view>
 </html>
