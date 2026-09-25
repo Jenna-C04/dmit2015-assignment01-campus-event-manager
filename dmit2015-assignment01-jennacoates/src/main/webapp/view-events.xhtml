@@ -5,17 +5,35 @@
       xmlns:f="jakarta.faces.core"
       xmlns:h="jakarta.faces.html">
 <f:view>
-    <h:head></h:head>
+    <h:head>
+        <title>View Events</title>
+    </h:head>
     <h:body>
-        <h1>Current Events</h1>
+        <h1>View Events</h1>
         <br />
         <br />
         <h:outputText
-                value="Succesful submission : #{eventFormBean.submssionCount}"/>
+                value="Succesful submission : #{eventFormBean.submssions}"/>
         <br />
         <br />
         <p:dataTable>
-            <p:dataView var="event" value""></p:dataView>
+            <p:dataView id="dataTable" var="currentEvent" value="#{eventInfoSession.events}">
+                <p:column headerText="Event Name">
+                    <h:outputText value="#{currentEvent.eventName}"/>
+                </p:column>
+                <p:column headerText="Orgaizer Name">
+                    <h:outputText value="#{currentEvent.organizerName}"/>
+                </p:column>
+                <p:column headerText="Event Date">
+                    <h:outputText value="#{currentEvent.eventDate}"/>
+                </p:column>
+                <p:column headerText="Capacity">
+                    <h:outputText value="#{currentEvent.capacity}"/>
+                </p:column>
+                <p:column headerText="Id">
+                    <h:outputText value="#{currentEvent.eventId}"/>
+                </p:column>
+            </p:dataView>
         </p:dataTable>
 
     </h:body>
