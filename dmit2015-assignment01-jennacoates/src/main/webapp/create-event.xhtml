@@ -12,18 +12,21 @@
         <h:form>
 
             <p:messages showDetail="true"/>
+            <br />
             <p:panel header="Event Regsitration"/>
+            <br />
+            <br />
 
             <p:outputLabel for="eventName" value="Event Name" />
             <p:inputText id="eventName"
-                         value="#{campusEvent.eventName}"
+                         value="#{eventFormBean.campusEvent.eventName}"
                          rendered="true"
                          requiredMessage="Please enter a name for the event!"/>
             <br />
             <br />
             <p:outputLabel for="organizerName" value="Organizer Name" />
             <p:inputText id="organizerName"
-                         value="#{campusEvent.organizerName}"
+                         value="#{eventFormBean.campusEvent.organizerName}"
                          required="true"
                          requiredMessage="Please enter a name for the organizer!"/>
             <br />
@@ -31,24 +34,34 @@
 
             <p:outputLabel for="eventDate" value="Event Date"/>
             <p:datePicker id="eventDate"
-                          value="#{campusEvent.eventDate}"
+                          value="#{eventFormBean.campusEvent.eventDate}"
                           required="true"
                           requiredMessage="Please select a date to hold the event!" />
             <br />
             <br />
             <p:outputLabel for="capacity" value="Capacity" />
             <p:inputNumber id="capacity"
-                           value="#{campusEvent.capacity}"
+                           value="#{eventFormBean.campusEvent.capacity}"
                            required="true"
                            requiredMessage="Please verifiy a capacity number!" />
+            <br />
+            <br />
 
             <p:commandButton value="Submit"
-                             action="#{campusEvent.submit()}"
+                             action="#{eventView.submit()}"
                              update="@form"
                              process="@form"/>
+            <br />
+            <br />
+<!--            <p:commandButton value="View Events"-->
+<!--                             action="#{eventView.submit()}"-->
+<!--                             update="@form"-->
+<!--                             process="@form"/>-->
+            <br />
+            <br />
 
             <h:outputText
-                value="Succesful submission : #{campusEvent.submssionCount}"/>
+                value="Succesful submission : #{eventFormBean.submssionCount}"/>
 
 
         </h:form>

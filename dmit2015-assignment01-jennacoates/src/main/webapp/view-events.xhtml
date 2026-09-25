@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="primefaces"
       xmlns:f="jakarta.faces.core"
       xmlns:h="jakarta.faces.html">
 <f:view>
     <h:head></h:head>
     <h:body>
+        <h1>Current Events</h1>
+        <br />
+        <br />
+        <h:outputText
+                value="Succesful submission : #{eventFormBean.submssionCount}"/>
+        <br />
+        <br />
+        <p:dataTable>
+            <p:dataView var="event" value""></p:dataView>
+        </p:dataTable>
 
     </h:body>
 </f:view>
